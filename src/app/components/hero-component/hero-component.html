@@ -1,0 +1,41 @@
+<section id="home" class="hero">
+  <div class="container hero-inner">
+
+    <div class="hero-text">
+      <p class="hero-greeting">Hi, I'm</p>
+      <h1 class="hero-name">Sanjay Gandhi S</h1>
+      <h2 class="hero-role">Angular Developer</h2>
+      <p class="hero-bio">
+        Passionate Angular Developer with 1+ year of experience building
+        scalable web applications and delivering exceptional user experiences.
+      </p>
+
+      <div class="hero-cta">
+        <!-- <a href="#projects" class="btn btn-primary">View My Work</a> -->
+        <a href="#contact"  class="btn btn-outline">Contact Me</a>
+      </div>
+
+      <div class="hero-socials">
+        <a *ngFor="let s of socials" [href]="s.href" [attr.aria-label]="s.label"
+           class="social-icon" target="_blank" rel="noopener">
+          <img [src]="'assets/icons/' + s.icon + '.svg'" [alt]="s.label" />
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-avatar">
+      <div class="blob-wrap">
+        <div class="blob"></div>
+        <img src="assets/hero.png" alt="Pratik Karn" class="avatar-img" />
+      </div>
+      <div class="code-badge">&lt;/&gt;</div>
+    </div>
+
+  </div>
+
+  <div class="wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f5f7ff"/>
+    </svg>
+  </div>
+</section>

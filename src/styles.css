@@ -1,1 +1,124 @@
-/* You can add global styles to this file, and also import other style files */
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --clr-dark:         #0b0d1a;
+  --clr-dark-mid:     #10122a;
+  --clr-light:        #f5f7ff;
+  --clr-surface:      #ffffff;
+  --clr-card:         #f0f2ff;
+  --clr-accent:       #7c5cfc;
+  --clr-accent-light: #a988ff;
+  --clr-accent-blue:  #3ec9f7;
+  --clr-text:         #0b0d1a;
+  --clr-muted:        #6b7280;
+  --clr-white:        #ffffff;
+  --font-display:     'Poppins', sans-serif;
+  --font-body:        'Inter', sans-serif;
+  --radius-sm:        8px;
+  --radius-md:        14px;
+  --radius-lg:        24px;
+  --shadow-card:      0 4px 24px rgba(124,92,252,.10);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--clr-text);
+  background: var(--clr-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { 
+  text-decoration: none; 
+  color: inherit; 
+}
+
+ul { 
+  list-style: none; 
+}
+
+img { 
+  max-width: 100%; 
+  display: block; 
+}
+
+/* ── Shared Utilities ── */
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title::after {
+  content: '';
+  flex: 0 0 36px;
+  height: 3px;
+  background: var(--clr-accent);
+  border-radius: 2px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all .22s ease;
+}
+
+.btn-primary { 
+  background: var(--clr-accent); 
+  color: #fff; 
+}
+
+.btn-primary:hover { 
+  background: #6749e0; 
+}
+
+.btn-outline { 
+  background: transparent; 
+  border-color: #fff; 
+  color: #fff; 
+}
+
+.btn-outline:hover { 
+  background: #fff; 
+  color: var(--clr-accent); 
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #ede9fe;
+  color: var(--clr-accent);
+  border-radius: 999px;
+  font-size: .73rem;
+  font-weight: 600;
+}
