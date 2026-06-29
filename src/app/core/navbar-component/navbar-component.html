@@ -7,12 +7,12 @@
     <!-- Desktop Links -->
     <nav class="nav-links" [class.open]="menuOpen">
       <a *ngFor="let link of navLinks"
-         [href]="link.href"
+         [routerLink]="link.href"
          class="nav-link"
          (click)="closeMenu()">
         {{ link.label }}
       </a>
-      <a href="assets/resume.pdf" download class="btn btn-primary btn-sm">
+      <a href="https://drive.google.com/uc?export=download&id=1vrw2cMYVtlMdRbHEO7Gy_ZjyY1Jh2Jse" download class="btn btn-primary btn-sm">
         Download Resume ↓
       </a>
     </nav>
