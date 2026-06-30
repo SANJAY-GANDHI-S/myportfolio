@@ -1,5 +1,5 @@
-<section id="about" class="about-section">
-  <div class="container about-grid">
+<section id="about" class="about-section" [ngClass]="{ 'padding90px': !isPreview }">
+  <div class="container about-grid" [ngClass]="{ 'displayBlock': !isPreview }">
 
     <!-- Illustration / avatar card -->
     <div class="about-visual">
@@ -16,8 +16,11 @@
 
     <!-- Text -->
     <div class="about-text">
+      <div class="about-header">
       <h2 class="section-title">About Me</h2>
-      <p class="about-bio">
+        <a routerLink="/about" class="btn btn-sm view-all" *ngIf="isPreview">Read More →</a>
+      </div>
+      <p class="about-bio" [ngClass]="{ 'preview-about-bio': !isPreview }">
         I'm an Angular Developer who loves turning ideas into real-world applications.
         I specialize in building responsive, performance-driven web apps using Angular,
         TypeScript, and modern web technologies.
