@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/api/contact")
-@CrossOrigin(origins = "https://myportfolio-phi-rose.vercel.app/")
+@CrossOrigin(origins = "https://myportfolio-phi-rose.vercel.app")
 public class ContactController {
 
   @Autowired
