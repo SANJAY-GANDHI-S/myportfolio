@@ -1,7 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { ContactService } from '../../services/contact-service';
+
+export interface ContactRequest {
+  name: string;
+  email: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-footer',
@@ -12,6 +19,7 @@ import { RouterLink } from '@angular/router';
   ],
   templateUrl: './footer-component.html',
   styleUrl: './footer-component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
@@ -52,19 +60,37 @@ export class FooterComponent {
   ];
 
   formData = { name: '', email: '', message: '' };
+
   submitted = false;
+
   loading = false;
+
+  constructor(private contactService: ContactService, private cdr: ChangeDetectorRef) {}
 
   onSubmit() {
     if (!this.formData.name || !this.formData.email || !this.formData.message) return;
+
     this.loading = true;
-    // Simulate sending
-    setTimeout(() => {
-      this.loading = false;
-      this.submitted = true;
-      this.formData = { name: '', email: '', message: '' };
-      setTimeout(() => (this.submitted = false), 4000);
-    }, 1200);
+
+    this.contactService.sendMessage(this.formData).subscribe({
+      next: (response) => {
+        this.submitted = true;
+        this.formData = { name: '', email: '', message: '' };
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        this.loading = false;
+        this.submitted = false;
+        console.error(err);
+      },
+      complete: () => {
+        setTimeout(()=>{
+          this.submitted = false;
+          this.loading = false;
+          this.cdr.detectChanges();
+        }, 2000)
+      }
+    });
   }
 
   scrollToTop() {
