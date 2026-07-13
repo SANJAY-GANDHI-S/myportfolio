@@ -18,7 +18,7 @@ export class AboutComponent implements OnInit {
 
   stats = [
     { value: '1+',   label: 'Years Experience' },
-    { value: '10+',  label: 'Projects Completed' },
+    { value: '4',  label: 'Projects Completed' },
     { value: '100%', label: 'Commitment' },
   ];
 

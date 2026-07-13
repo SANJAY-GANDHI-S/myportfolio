@@ -1,0 +1,61 @@
+<section id="certifications" class="cert-section" [ngClass]="{ 'padding90px': !isPreview }">
+  <div class="container">
+
+    <div class="cert-header">
+      <h2 class="section-title">Certifications</h2>
+      <a routerLink="/certifications" class="btn btn-sm view-all" *ngIf="isPreview">View All Certifications →</a>
+    </div>
+
+    <p class="cert-subtitle">
+        Verified credentials from top online learning platforms
+    </p>
+
+    <div class="cert-grid">
+      <article
+        class="cert-card"
+        *ngFor="let cert of certifications"
+        [style.--cert-color]="cert.logoColor"
+      >
+        <!-- Left: icon -->
+        <div class="cert-icon-wrap">
+          <img [src]="cert.logo" [alt]="cert.title" width="36" height="36" />
+        </div>
+
+        <!-- Middle: info -->
+        <div class="cert-info">
+          <h3 class="cert-title">{{ cert.title }}</h3>
+          <div class="cert-meta">
+            <span class="cert-issuer">
+              <!-- Udemy logo pill -->
+              <span class="issuer-pill coursera">
+                {{ cert.issuer }}
+              </span>
+            </span>
+            <span class="cert-badge tag">{{ cert.badge }}</span>
+          </div>
+        </div>
+
+        <!-- Right: year -->
+        <div class="cert-right">
+          <span class="cert-year">{{ cert.year }}</span>
+          <a [href]="cert.credentialUrl" target="_blank" rel="noopener"
+             class="cert-link" aria-label="View credential">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.5 3H17v6.5M17 3l-8 8M8 4H4a1 1 0 00-1 1v11a1 1 0 001 1h11a1 1 0 001-1v-4"/>
+            </svg>
+            View
+          </a>
+        </div>
+
+        <div class="cert-img" *ngIf="!isPreview">
+          <img [src]="cert.certificationUrl" alt="">
+        </div>
+
+        <!-- Color accent bar -->
+        <div class="cert-bar"></div>
+      </article>
+    </div>
+
+  </div>
+</section>
