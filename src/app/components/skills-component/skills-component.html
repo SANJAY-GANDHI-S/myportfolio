@@ -1,0 +1,16 @@
+<section id="skills" class="skills-section" [ngClass]="{ 'padding90px': !isSkillPage }">
+  <div class="container">
+    <div class="skills-header">
+      <h2 class="section-title">My Skills</h2>
+      <a routerLink="/skills" class="btn btn-sm view-all" *ngIf="isSkillPage">View All Skills →</a>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card" *ngFor="let skill of skills">
+        <div class="skill-icon-wrap" [style.borderColor]="skill.color + '33'">
+          <img [src]="skill.icon" [alt]="skill.name" />
+        </div>
+        <span class="skill-name">{{ skill.name }}</span>
+      </div>
+    </div>
+  </div>
+</section>

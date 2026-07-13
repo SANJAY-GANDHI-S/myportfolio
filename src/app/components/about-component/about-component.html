@@ -1,0 +1,62 @@
+<section id="about" class="about-section" [ngClass]="{ 'padding90px': !isPreview }">
+  <div class="container about-grid" [ngClass]="{ 'displayBlock': !isPreview }">
+
+    <!-- Illustration / avatar card -->
+    <div class="about-visual">
+      <div class="av-card">
+        <div class="av-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="24" r="14" stroke="#7c5cfc" stroke-width="3"/>
+            <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24"
+                  stroke="#7c5cfc" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="about-text">
+      <div class="about-header">
+      <h2 class="section-title">About Me</h2>
+        <a routerLink="/about" class="btn btn-sm view-all" *ngIf="isPreview">Read More →</a>
+      </div>
+      <p class="about-bio" *ngIf="isPreview">
+        I am a Frontend Developer with 1+ years of experience in Angular, building 
+        schema-driven UIs, dynamic forms, and full-stack solutions with 
+        Java and Spring Boot.
+      </p>
+      <p class="about-bio" [ngClass]="{ 'preview-about-bio': !isPreview }" *ngIf="!isPreview">
+        Hello! I'm Sanjay Gandhi S, a passionate Frontend Developer with 1+ years of
+        professional experience building enterprise-grade web applications using Angular, 
+        TypeScript, JavaScript, HTML, and CSS. I have hands-on experience developing schema-driven, 
+        configurable UI systems, reusable components, dynamic forms, workflow-based modules, and 
+        robust route guards that improve both developer productivity and user experience.
+
+        <br/>
+        <br/>
+
+        I believe in writing clean, maintainable, and scalable code while following industry best 
+        practices. Alongside frontend development, I have a solid understanding of Java, Spring Boot, 
+        MySQL, and REST APIs, allowing me to understand and collaborate across the full application stack. 
+        I also prioritize software quality by creating comprehensive unit tests with Jasmine and Karma 
+        to ensure reliable and maintainable applications.
+
+        <br/>
+        <br/>
+
+        I enjoy solving complex problems, learning new technologies, and continuously improving my skills. 
+        My goal is to contribute to impactful products, collaborate with talented teams, and grow into a 
+        highly skilled Full Stack Software Engineer while delivering meaningful solutions that create real 
+        business value.
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-card" *ngFor="let s of stats">
+          <span class="stat-value">{{ s.value }}</span>
+          <span class="stat-label">{{ s.label }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

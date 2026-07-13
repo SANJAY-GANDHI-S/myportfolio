@@ -1,0 +1,26 @@
+<section id="experience" class="experience-section" [ngClass]="{ 'padding90px': !isPreview }">
+  <div class="container">
+    <div class="experience-header">
+        <h2 class="section-title">Experience</h2>
+        <a routerLink="/experience" class="btn btn-sm view-all" *ngIf="isPreview">View All Experience →</a>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let exp of experiences">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">{{ exp.role }}</h3>
+              <p class="exp-company">{{ exp.company }}</p>
+            </div>
+            <span class="exp-period">{{ exp.period }}</span>
+          </div>
+          <ul class="exp-points">
+            <li *ngFor="let point of exp.points">{{ point }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+.split-screen {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 0 20px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 780px) {
+    .split-screen {
+        display: block;
+    }
+}
