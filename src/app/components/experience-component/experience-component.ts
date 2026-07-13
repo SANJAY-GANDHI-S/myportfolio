@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { ConstantService } from '../../services/constant-service';
 
 @Component({
   selector: 'app-experience',
@@ -15,25 +16,17 @@ export class ExperienceComponent implements OnInit {
   
   isPreview: boolean = true;
 
-  experiences = [
-    {
-      role: 'Angular Developer',
-      company: 'TechNova Solutions Pvt. Ltd.',
-      period: 'May 2023 – Present',
-      points: [
-        'Developed and maintained scalable web applications using Angular 15+.',
-        'Collaborated with UI/UX designers to implement responsive designs.',
-        'Integrated RESTful APIs and worked with RxJS for asynchronous data handling.',
-        'Improved application performance and fixed bugs to enhance user experience.',
-      ],
-    },
-  ];
+  experiences: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private constantService: ConstantService) {}
 
   ngOnInit(): void {
     if ( this.router.url == "/experience" ) {
       this.isPreview = false;
+      this.experiences = this.constantService.experiences;
+    } else {
+      this.isPreview = true;
+      this.experiences = this.constantService.experiences.slice(0, 1);
     }
   }
 }

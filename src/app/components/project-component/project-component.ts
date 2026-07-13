@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { ConstantService } from '../../services/constant-service';
 
 export interface Project {
   title: string;
@@ -22,35 +23,16 @@ export interface Project {
 export class ProjectComponent implements OnInit {
   isPreview: boolean = true;
 
-  projects: Project[] = [
-    {
-      title: 'FitZone',
-      description: 'A fitness web application built with Angular. Includes workout plans, tracking & progress.',
-      image: 'assets/projects/fitzone.png',
-      tags: ['Angular', 'TypeScript', 'SCSS', 'RxJS'],
-      link: '#',
-    },
-    {
-      title: 'ShopVerse',
-      description: 'E-commerce platform with product listing, cart, checkout & order management.',
-      image: 'assets/projects/shopverse.png',
-      tags: ['Angular', 'Bootstrap', 'TypeScript', 'API'],
-      link: '#',
-    },
-    {
-      title: 'TaskFlow',
-      description: 'Task management dashboard to organize, track and boost team productivity.',
-      image: 'assets/projects/taskflow.png',
-      tags: ['Angular', 'NgRx', 'Material', 'TypeScript'],
-      link: '#',
-    },
-  ];
+  projects: Project[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private constantService: ConstantService) {}
 
   ngOnInit(): void {
     if ( this.router.url == "/projects" ) {
       this.isPreview = false;
+      this.projects = this.constantService.projects;
+    } else {
+      this.projects = this.constantService.projects.slice(0, 3);
     }
   }
 }

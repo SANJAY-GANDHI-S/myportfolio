@@ -17,7 +17,9 @@
             <span class="exp-period">{{ exp.period }}</span>
           </div>
           <ul class="exp-points">
-            <li *ngFor="let point of exp.points">{{ point }}</li>
+            <ng-container *ngFor="let point of exp.points;let i = index">
+              <li *ngIf="!isPreview ? true : i < 4">{{ point }}</li>
+            </ng-container>
           </ul>
         </div>
       </div>

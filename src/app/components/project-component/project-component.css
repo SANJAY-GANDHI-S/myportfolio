@@ -25,6 +25,7 @@
   box-shadow: var(--shadow-card);
   transition: transform .25s, box-shadow .25s;
 }
+
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 36px rgba(124,92,252,.16);
@@ -36,28 +37,56 @@
   overflow: hidden;
   background: #e5e7f0;
 }
+
 .project-thumb img {
   width: 100%; height: 100%;
   object-fit: cover;
   transition: transform .35s;
 }
-.project-card:hover .project-thumb img { transform: scale(1.05); }
+
+.project-card:hover .project-thumb img { 
+  transform: scale(1.05); 
+}
+
+.project-title-img {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: var(--font-display);
+  background-color: rgba(11,13,26,.92);
+  color: #fff;
+}
 
 .project-link-btn {
   position: absolute;
-  bottom: 12px; right: 12px;
-  width: 36px; height: 36px;
+  bottom: 12px; 
+  right: 12px;
+  width: 36px; 
+  height: 36px;
   background: var(--clr-surface);
   border-radius: 50%;
-  display: grid; place-items: center;
+  display: grid; 
+  place-items: center;
   color: var(--clr-accent);
   box-shadow: 0 2px 8px rgba(0,0,0,.12);
   transition: background .2s, color .2s;
 }
-.project-link-btn:hover { background: var(--clr-accent); color: #fff; }
-.project-link-btn svg { width: 16px; height: 16px; }
 
-.project-body { padding: 20px; }
+.project-link-btn:hover { 
+  background: var(--clr-accent); 
+  color: #fff; 
+}
+
+.project-link-btn svg { 
+  width: 16px; 
+  height: 16px; 
+}
+
+.project-body { 
+  padding: 20px; 
+}
 
 .project-title {
   font-family: var(--font-display);
@@ -65,17 +94,28 @@
   font-weight: 700;
   margin-bottom: 8px;
 }
+
 .project-desc {
   font-size: .87rem;
   color: var(--clr-muted);
   line-height: 1.6;
   margin-bottom: 14px;
 }
-.project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.project-tags { 
+  display: flex; 
+  gap: 8px; 
+  flex-wrap: wrap; 
+}
 
 @media (max-width: 900px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
+
 @media (max-width: 560px) {
-  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid { 
+    grid-template-columns: 1fr; 
+  }
 }

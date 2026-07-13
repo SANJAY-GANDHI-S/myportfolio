@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://your-deployed-backend.com'
+  apiUrl: 'https://myportfolio-phi-rose.vercel.app'
 };

@@ -25,7 +25,6 @@ export class SkillsComponent implements OnInit{
     if (this.router.url == '/skills') {
       this.isSkillPage = false;
       this.skills = this.constantService.skills;
-      console.log(this.skills);
     } else {
       this.isSkillPage = true;
       this.skills = this.constantService.skills.slice(0, 10);
