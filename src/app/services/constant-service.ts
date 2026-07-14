@@ -29,7 +29,7 @@ export class ConstantService {
       title: 'My Portfolio',
       description: 'Developed a responsive portfolio website showcasing skills, projects, experience, and contact information professionally.',
       image: '',
-      tags: ['Angular', 'TypeScript', 'Java', 'SpringBoot','HTML CSS'],
+      tags: ['Angular', 'TypeScript', 'HTML CSS'],
       link: 'https://github.com/SANJAY-GANDHI-S/myportfolio.git',
     },
     {
