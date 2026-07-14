@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { ContactService } from '../../services/contact-service';
+import emailjs from '@emailjs/browser';
 
 export interface ContactRequest {
   name: string;
@@ -65,31 +65,39 @@ export class FooterComponent {
 
   loading = false;
 
-  constructor(private contactService: ContactService, private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   onSubmit() {
     if (!this.formData.name || !this.formData.email || !this.formData.message) return;
 
     this.loading = true;
 
-    this.contactService.sendMessage(this.formData).subscribe({
-      next: (response) => {
-        this.submitted = true;
-        this.formData = { name: '', email: '', message: '' };
-        this.cdr.detectChanges();
+    emailjs.send(
+      'service_5bu7c5p',
+      'template_4a75emg',
+      {
+        name: this.formData.name,
+        email: this.formData.email,
+        message: this.formData.message
       },
-      error: (err) => {
-        this.loading = false;
+      'GxfNEFmrfTSILWKo1'
+    )
+    .then(() => {
+      this.submitted = true;
+      this.formData = { name: '', email: '', message: '' };
+      this.cdr.detectChanges();
+    })
+    .catch((err) => {
+      this.loading = false;
+      this.submitted = false;
+      console.error('EmailJS error:', err);
+    })
+    .finally(() => {
+      setTimeout(()=>{
         this.submitted = false;
-        console.error(err);
-      },
-      complete: () => {
-        setTimeout(()=>{
-          this.submitted = false;
-          this.loading = false;
-          this.cdr.detectChanges();
-        }, 2000)
-      }
+        this.loading = false;
+        this.cdr.detectChanges();
+      }, 2000);
     });
   }
 
